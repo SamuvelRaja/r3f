@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Canvas } from "@react-three/fiber";
 
 import './App.css'
-import Model  from './models/city';
+import Model  from './models/city2';
 
 function App() {
 
-  const [position, setPosition] = useState(-100);
+  const [position, setPosition] = useState(-700);
 
  
 

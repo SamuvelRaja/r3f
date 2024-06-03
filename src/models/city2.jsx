@@ -2,7 +2,7 @@ import { a } from "@react-spring/three";
 import { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-
+import { MeshStandardMaterial } from "three";
 import islandScene from "../assets/3d/scene1.glb";
 
 
@@ -13,6 +13,7 @@ function updatePosition(e){
   setPosition((prevPos) => parseInt((prevPos + scroll) ));
 
 }
+
 useEffect(()=>{
 const canvas=gl.domElement
 canvas.addEventListener("wheel",updatePosition)
@@ -25,6 +26,11 @@ return ()=>{
 
 console.log(position,"pos")
   const { nodes, materials } = useGLTF(islandScene)
+
+  const newMaterial = new MeshStandardMaterial({
+  color: 0x00008B, // Blue color
+  wireframe: true, // Enable wireframe mode
+});
   return (
     <group position={[0, -60, position]} scale={scale}  dispose={null}>
      
@@ -90,26 +96,17 @@ console.log(position,"pos")
         />
       </group>
       
-      <group position={[0, 0, 0]}>
+      <group position={[0, 0, 0]} wireframe="true">
         <mesh
           geometry={nodes.Cube001.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube001_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
-      <group position={[0, 0, 0]}>
-        <mesh
-          geometry={nodes.Cube001.geometry}
-          material={materials.ground}
-        />
-        <mesh
-          geometry={nodes.Cube001_1.geometry}
-          material={materials.hotel_glas}
-        />
-      </group>
+      
     </group>
   )
 }
