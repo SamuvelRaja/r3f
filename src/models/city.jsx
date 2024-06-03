@@ -6,41 +6,29 @@ import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/scene1.glb";
 
 
-const Model=(props)=> {
+const Model=({position, scale, setPosition})=> {
+ const { gl, viewport } = useThree();
+function updatePosition(e){
+  let scroll=e.deltaY
+  setPosition((prevPos) => parseInt((prevPos + scroll) ));
+
+}
+useEffect(()=>{
+const canvas=gl.domElement
+canvas.addEventListener("wheel",updatePosition)
+console.log("mount")
+return ()=>{
+  canvas.removeEventListener("wheel",updatePosition)
+  console.log("unmount")
+}
+},[updatePosition])
+
+console.log(position,"pos")
   const { nodes, materials } = useGLTF(islandScene)
   return (
-    <group {...props} dispose={null}>
-      <group position={[0, 0, -1550]}>
-        <mesh
-          geometry={nodes.Cube003.geometry}
-          material={materials.ground}
-        />
-        <mesh
-          geometry={nodes.Cube003_1.geometry}
-          material={materials.hotel_glas}
-        />
-      </group>
-      <group position={[0, 0, -1800]}>
-        <mesh
-          geometry={nodes.Cube004.geometry}
-          material={materials.ground}
-        />
-        <mesh
-          geometry={nodes.Cube004_1.geometry}
-          material={materials.hotel_glas}
-        />
-      </group>
-      <group position={[0, 0, -2050]}>
-        <mesh
-          geometry={nodes.Cube005.geometry}
-          material={materials.ground}
-        />
-        <mesh
-          geometry={nodes.Cube005_1.geometry}
-          material={materials.hotel_glas}
-        />
-      </group>
-      <group position={[0, 0, 800]}>
+    <group position={[0, -60, position]} scale={scale}  dispose={null}>
+     
+      <group position={[0, 0, -800]}>
         <mesh
           geometry={nodes.Cube006.geometry}
           material={materials.ground}
@@ -50,7 +38,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, 1300]}>
+      <group position={[0, 0, -1300]}>
         <mesh
           geometry={nodes.Cube008.geometry}
           material={materials.ground}
@@ -60,7 +48,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, 550]} scale={[1, 1, 1.009]}>
+      <group position={[0, 0, -550]} >
         <mesh
           geometry={nodes.Cube009.geometry}
           material={materials.ground}
@@ -70,7 +58,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, 300]}>
+      <group position={[0, 0, -300]}>
         <mesh
           geometry={nodes.Cube011.geometry}
           material={materials.ground}
@@ -80,7 +68,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, 50]}>
+      <group position={[0, 0, -50]}>
         <mesh
           geometry={nodes.Cube012.geometry}
           material={materials.ground}
@@ -90,7 +78,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, 1050]}>
+      <group position={[0, 0, -1050]}>
         <mesh
           geometry={nodes.Cube014.geometry}
           material={materials.ground}
@@ -100,7 +88,7 @@ const Model=(props)=> {
           material={materials.hotel_glas}
         />
       </group>
-      <group position={[0, 0, -200]}>
+      <group position={[0, 0, 200]}>
         <mesh
           geometry={nodes.Cube001.geometry}
           material={materials.ground}
