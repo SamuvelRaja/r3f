@@ -38,61 +38,61 @@ console.log(position,"pos")
       <group position={[0, 0, -6000]}>
         <mesh
           geometry={nodes.Cube008.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube008_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       <group position={[0, 0, -5000]}>
         <mesh
           geometry={nodes.Cube014.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube014_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       <group position={[0, 0, -4000]}>
         <mesh
           geometry={nodes.Cube006.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube006_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       <group position={[0, 0, -3000]} >
         <mesh
           geometry={nodes.Cube009.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube009_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       <group position={[0, 0, -2000]}>
         <mesh
           geometry={nodes.Cube011.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube011_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       <group position={[0, 0, -1000]}>
         <mesh
           geometry={nodes.Cube012.geometry}
-          material={materials.ground}
+          material={newMaterial}
         />
         <mesh
           geometry={nodes.Cube012_1.geometry}
-          material={materials.hotel_glas}
+          material={newMaterial}
         />
       </group>
       

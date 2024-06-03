@@ -1,3 +1,5 @@
 body{
-    background-color: black;
+    background-image: url(/src/assets/images/pastelbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
