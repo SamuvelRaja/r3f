@@ -40,8 +40,14 @@ const Model = ({ position, scale, setPosition }) => {
     color: 0x00008b, // Blue color
     wireframe: true, // Enable wireframe mode
   });
+    const baseMaterial = new MeshStandardMaterial({
+  color: 0x00008b, // Specify the color here
+  wireframe: true, // Enable wireframe mode if needed
+});
   return (
     <group position={[0, -60, position]} scale={scale} dispose={null}>
+
+    <mesh geometry={terrainGeometry} material={baseMaterial} />
       <group position={[0, 0, -6000]}>
         <mesh geometry={nodes.Cube008.geometry} material={newMaterial} />
         <mesh geometry={nodes.Cube008_1.geometry} material={newMaterial} />
